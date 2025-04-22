@@ -6,9 +6,9 @@
     <div class="container py-5">
         <section id="services" class="py-2">
             @role ('Admin')
-                <h1 class="text-center">Pembelajaran</h1>
-                <section>
-                    <a href="{{ route('pembelajaran.create') }}" class="btn bttn-unite bttn-md d-block">&nbsp;&nbsp;Tambah Pembelajaran&nbsp;&nbsp;</a>
+                <section class="py-3 mx-auto w-100 d-flex justify-content-center align-items-center gap-3">
+                    <h1 class="d-inline">Pembelajaran</h1>
+                    <a href="{{ route('pembelajaran.create') }}" class="btn btn-sm btn-primary">&nbsp;&nbsp;Tambah Modul&nbsp;&nbsp;</a>
                 </section>
             @else
                 <h1 class="text-center">Pembelajaran</h1>
