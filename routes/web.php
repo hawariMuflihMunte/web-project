@@ -10,4 +10,10 @@ Route::get('/about', AboutController::class)->name('about');
 Route::get('/contact', ContactController::class)->name('contact');
 
 // Pembelajaran
+Route::group(['middleware' => ['role:Admin'], 'prefix' => 'admin'], function () {
+  Route::resource('pembelajaran', \App\Http\Controllers\PembelajaranController::class);
+});
 
+Route::group(['middleware' => ['role:SiswaGuru']], function () {
+  Route::resource('pembelajaran', \App\Http\Controllers\PembelajaranController::class)->only('show');
+});
