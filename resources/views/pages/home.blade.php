@@ -25,7 +25,9 @@
                     <div class="card-body">
                         <h5 class="card-title">Pembelajaran</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        {{-- @role('Admin') --}}
+                            <a href="{{ route('pembelajaran.index') }}" class="btn btn-primary">Selengkapnya</a>
+                        {{-- @endrole --}}
                     </div>
                 </div>
                 @for ($i = 1; $i <= 5; $i++)

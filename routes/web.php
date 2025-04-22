@@ -14,6 +14,8 @@ Route::group(['middleware' => ['role:Admin'], 'prefix' => 'admin'], function () 
   Route::resource('pembelajaran', \App\Http\Controllers\PembelajaranController::class);
 });
 
-Route::group(['middleware' => ['role:SiswaGuru']], function () {
-  Route::resource('pembelajaran', \App\Http\Controllers\PembelajaranController::class)->only('show');
+Route::group(['middleware' => ['role:Siswa'], 'prefix' => 'siswa'], function () {
+  Route::resource('pembelajaran', \App\Http\Controllers\PembelajaranController::class)->only('index', 'show');
 });
+
+Route::resource('pembelajaran', \App\Http\Controllers\PembelajaranController::class)->only('index', 'show');
