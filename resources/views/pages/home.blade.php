@@ -8,7 +8,10 @@
             <section class="py-5 px-2">
                 <h1>Selamat Datang di ???</h1>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id minus, ducimus quae odit debitis repellat vel corrupti. Labore, incidunt ex.</p>
-                <a href="#services" class="btn bttn-unite bttn-md d-block">&nbsp;&nbsp;Mulai&nbsp;&nbsp;</a>
+                <section class="d-flex flex-column gap-3 py-3 px-1">
+                    <a href="#services" class="btn bttn-unite bttn-md d-block">&nbsp;&nbsp;Mulai&nbsp;&nbsp;</a>
+                    <a href="#" class="btn bttn-minimal bttn-sm bttn-primary w-50 mx-auto">&nbsp;&nbsp;Bergabung <i class="bi bi-arrow-right-short"></i>&nbsp;&nbsp;</a>
+                </section>
             </section>
             <section class="p-2">
                 <img src="{{ asset('images/undraw_book-writer_ri5u.png') }}" alt="Write something on a book" class="img-fluid">
