@@ -16,16 +16,16 @@
                     <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                 </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Halaman Utama</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">About</a>
+                    <a class="nav-link" href="{{ route('about') }}">Tentang Kami</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+                    <a class="nav-link" href="{{ route('contact') }}">Kontak Kami</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn bttn-unite bttn-sm" href="#">Masuk</a>
+                    <a class="btn bttn-unite bttn-sm" href="{{ route('login.index') }}">Masuk</a>
                 </li>
             </ul>
             {{-- <form class="d-flex" role="search">
