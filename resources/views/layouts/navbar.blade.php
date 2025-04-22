@@ -22,7 +22,7 @@
                     <a class="nav-link" href="{{ route('about') }}">Tentang Kami</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact') }}">Kontak Kami</a>
+                    <a class="nav-link" href="{{ route('contact') }}">Hubungi Kami</a>
                 </li>
                 @if (auth()->guest() || !auth()->check())
                     <li class="nav-item">

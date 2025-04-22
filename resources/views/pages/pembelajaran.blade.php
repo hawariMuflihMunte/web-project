@@ -15,24 +15,28 @@
             @endrole
 
             <section class="py-5 d-flex flex-column flex-lg-row flex-xl-row flex-xxl-row flex-nowrap flex-lg-wrap flex-xl-wrap flex-xxl-wrap justify-content-center align-items-center gap-5">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ asset('images/undraw_reading-a-book_4cap.png') }}" class="card-img-top" alt="Reading a book">
-                    <div class="card-body">
-                        <h5 class="card-title">Pembelajaran</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                @foreach ($pembelajarans as $pembelajaran)
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('images/undraw_reading-a-book_4cap.png') }}" class="card-img-top" alt="Reading a book">
-                        <div class="card-body">
-                            <h5 class="card-title">Modul {{ $pembelajaran->judul }}</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Selengkapnya</a>
+                @if (!$pembelajarans->isEmpty())
+                    @foreach ($pembelajarans as $pembelajaran)
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{ asset('images/undraw_reading-a-book_4cap.png') }}" class="card-img-top" alt="Reading a book">
+                            <div class="card-body">
+                                <h5 class="card-title">Modul {{ $pembelajaran->judul }}</h5>
+                                <p class="card-text text-truncate">{{ $pembelajaran->deskripsi }}</p>
+                                <a href="{{ route('pembelajaran.show', $pembelajaran->slug) }}" class="btn btn-primary">Selengkapnya</a>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="card text-bg-dark" style="max-width: 500px;">
+                        <img src="{{ asset('images/undraw_creative-flow_t3kz.png') }}" class="card-img" alt="">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"></p>
+                            <p class="card-text"></p>
                         </div>
                     </div>
-                @endforeach
+                    <p><i>Tidak ada modul pembelajaran saat ini. Silahkan tambah modul pembelajaran.</i></p>
+                @endif
             </section>
         </section>
     </div>

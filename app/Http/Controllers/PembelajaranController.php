@@ -22,7 +22,7 @@ class PembelajaranController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.pembelajaran-create');
     }
 
     /**
@@ -30,7 +30,18 @@ class PembelajaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'tujuan_pembelajaran' => 'nullable|string',
+            'materi_tambahan' => 'nullable|string',
+            'lampiran' => 'nullable|file|mimes:pdf,doc,docx',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        Pembelajaran::create($request->all());
+
+        return redirect()->route('pembelajaran.index')->with('success', 'Modul Berhasil Ditambah!');
     }
 
     /**

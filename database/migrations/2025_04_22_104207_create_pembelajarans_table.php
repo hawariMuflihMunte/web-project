@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('judul');
             $table->text('deskripsi');
-            $table->json('tujuan_pembelajaran')->nullable(true);
-            $table->text('materi')->nullable(true);
+            $table->text('tujuan_pembelajaran')->nullable(true);
+            $table->text('materi_tambahan')->nullable(true)->comment("Materi tambahan atau penjelasan tambahan terkait dengan modul.");
             $table->string('lampiran')->nullable(true);
             $table->string('gambar')->nullable(true);
             $table->timestamps();
