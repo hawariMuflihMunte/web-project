@@ -24,9 +24,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact') }}">Kontak Kami</a>
                 </li>
-                <li class="nav-item">
-                    <a class="btn bttn-unite bttn-sm" href="{{ route('login.index') }}">Masuk</a>
-                </li>
+                @if (auth()->guest() || !auth()->check())
+                    <li class="nav-item">
+                        <a class="btn bttn-unite bttn-sm" href="{{ route('login.index') }}">Masuk</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <form action="{{ route('login.destroy') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin keluar?');">
+                            @method('DELETE')
+                            <button type="submit" class="btn bttn-unite bttn-sm bttn-danger">Keluar</button>
+                        </form>
+                        {{-- <a class="btn bttn-unite bttn-sm bttn-danger" href="{{ route('login.destroy') }}">Keluar</a> --}}
+                    </li>
+                @endif
             </ul>
             {{-- <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

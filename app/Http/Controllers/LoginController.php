@@ -34,4 +34,21 @@ class LoginController extends Controller
             'password' => 'Terjadi kesalahan.',
         ]);
     }
+
+    public function destroy(Request $request)
+    {
+        // Get the current user's information
+        $user = Auth::user();
+
+        // Log the user out
+        Auth::logout();
+
+        // Invalidate the current session and regenerate the token
+        $request->session()->invalidate();
+
+        // Generate a new session token
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home')->with('success', 'Berhasil Keluar!');
+    }
 }
