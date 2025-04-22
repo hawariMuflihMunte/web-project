@@ -1,5 +1,6 @@
 @extends('master')
 
+@section('title', 'Home Page')
 @section('content')
     <div class="container">
         <h1>Welcome to the Web Project</h1>

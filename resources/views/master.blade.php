@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>Web Project</title>
+    @hasSection('title')
+        <title>Web Project | @yield('title')</title>
+    @else
+        <title>Web Project</title>
+    @endif
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
