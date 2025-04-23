@@ -26,22 +26,12 @@
                     <img src="{{ asset('images/undraw_reading-a-book_4cap.png') }}" class="card-img-top" alt="A girl is reading a book.">
                     <div class="card-body">
                         <h5 class="card-title">Pembelajaran</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Akses modul pembelajaran.</p>
                         {{-- @role('Admin') --}}
                             <a href="{{ route('pembelajaran.index') }}" class="btn btn-primary">Selengkapnya</a>
                         {{-- @endrole --}}
                     </div>
                 </div>
-                @for ($i = 1; $i <= 5; $i++)
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('images/undraw_reading-a-book_4cap.png') }}" class="card-img-top" alt="Reading a book">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                @endfor
             </section>
         </section>
     </div>
