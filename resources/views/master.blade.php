@@ -28,7 +28,13 @@
     {{-- Bttn --}}
     <link rel="stylesheet" href="{{ asset('bttn.min.css') }}">
 </head>
-<body>
+<body
+    @if (request()->is('login') || request()->is('daftar'))
+    style="
+        background: url('{{ asset('images/school-supply-stationary-background-free-vector.jpg') }}') no-repeat center center fixed;
+    "
+    @endif
+>
     @hasSection('content')
         @yield('content')
     @else
