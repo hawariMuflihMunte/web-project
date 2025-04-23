@@ -27,14 +27,12 @@
                     <div class="card-body">
                         <h5 class="card-title">Pembelajaran</h5>
                         <p class="card-text">Akses modul pembelajaran.</p>
-                        {{-- @role('Admin') --}}
-                            <a href="{{ route('pembelajaran.index') }}" class="btn btn-primary">Selengkapnya</a>
-                        {{-- @endrole --}}
+                        <a href="{{ route('pembelajaran.index') }}" class="btn btn-primary">Selengkapnya</a>
                     </div>
                 </div>
             </section>
         </section>
-        <section id="about" class="py-5">
+        <section id="about" class="py-5 my-4">
             <h2 class="text-center">Tentang Kami</h2>
             <section class="row py-5">
                 <section class="col-12 col-lg-7 col-xl-7 col-xxl-7">
@@ -45,7 +43,7 @@
                 </section>
             </section>
         </section>
-        <section id="contact" class="py-5">
+        <section id="contact" class="py-5 my-4">
             <h2 class="text-center">Hubungi Kami</h2>
             <section class="row py-5">
                 <section class="col-12 col-lg-5 col-xl-5 col-xxl-5">

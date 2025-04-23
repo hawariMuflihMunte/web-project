@@ -9,8 +9,8 @@
                 <h5>Quick Links</h5>
                 <ul class="list-unstyled">
                     <li><a href="/" class="link-light">Home</a></li>
-                    <li><a href="/about" class="link-light">Tentang Kami</a></li>
-                    <li><a href="/contact" class="link-light">Hubungi Kami</a></li>
+                    <li><a href="/#about" class="link-light">Tentang Kami</a></li>
+                    <li><a href="/#contact" class="link-light">Hubungi Kami</a></li>
                 </ul>
             </div>
             <div class="col-md-3">
