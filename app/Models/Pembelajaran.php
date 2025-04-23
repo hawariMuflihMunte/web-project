@@ -54,4 +54,14 @@ class Pembelajaran extends Model
     {
         return $this->belongsTo(User::class, 'created_by', 'slug');
     }
+
+    public function quiz()
+    {
+        return $this->hasOne(Quiz::class, 'modul_pengantar', 'slug');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

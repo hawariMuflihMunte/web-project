@@ -56,4 +56,19 @@ class Quiz extends Model
             ],
         ];
     }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'created_by', 'slug');
+    }
+
+    public function pembelajaran()
+    {
+        return $this->belongsTo(Pembelajaran::class, 'modul_pengantar', 'slug');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
