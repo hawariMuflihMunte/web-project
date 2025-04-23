@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Home Page')
+@section('title', 'Home')
 @section('content')
     @include('layouts.navbar')
     <div class="container py-5 mb-5">
