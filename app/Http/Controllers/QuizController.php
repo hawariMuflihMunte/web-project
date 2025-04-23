@@ -37,7 +37,7 @@ class QuizController extends Controller
     public function show(string $id)
     {
         $quiz = Quiz::where('slug', $id)->firstOrFail();
-        return view('quiz.show', compact('quiz'));
+        return view('pages.quiz-detail', compact('quiz'));
     }
 
     /**

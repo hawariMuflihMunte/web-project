@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PembelajaranController;
+use App\Http\Controllers\QuizController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -26,3 +27,14 @@ Route::group(['middleware' => ['role:Siswa'], 'prefix' => 'siswa'], function () 
 });
 
 Route::resource('pembelajaran', PembelajaranController::class)->only('index', 'show');
+
+// Quiz
+Route::group(['middleware' => ['role:Admin'], 'prefix' => 'admin'], function () {
+  Route::resource('quiz', QuizController::class);
+});
+
+Route::group(['middleware' => ['role:Siswa'], 'prefix' => 'siswa'], function () {
+  Route::resource('quiz', QuizController::class)->only('index', 'show');
+});
+
+Route::resource('quiz', QuizController::class)->only('index', 'show');

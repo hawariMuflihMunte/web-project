@@ -81,12 +81,12 @@
                             </section>
                             <section class="d-flex flex-column gap-3">
                                 @if ($pembelajaran->quiz)
-                                    <button type="button" class="btn bttn-unite bttn-sm bttn-primary d-block w-100">Mulai Kuis</button>
+                                    <a href="{{ route('quiz.show', $pembelajaran->quiz->slug) }}" class="btn bttn-unite bttn-sm bttn-primary d-block w-100">Mulai Kuis</a>
                                     @role('Admin')
-                                        <a class="btn bttn-unite bttn-sm bttn-warning d-block w-100">Edit Kuis</a>
+                                        <a href="{{ route('quiz.show', $pembelajaran->quiz->slug) }}" class="btn bttn-unite bttn-sm bttn-warning d-block w-100">Edit Kuis</a>
                                     @endrole
                                 @else
-                                    <button type="button" class="btn bttn-unite bttn-sm bttn-primary d-block w-100" disabled title="Belum ada kuis!">Mulai Kuis</button>
+                                    <button type="button" class="btn bttn-unite bttn-sm bttn-primary d-block w-100" disabled title="Belum ada kuis!">Tidak Ada Kuis</button>
                                 @endif
                             </section>
                         </section>
