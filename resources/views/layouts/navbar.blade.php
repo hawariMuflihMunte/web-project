@@ -6,17 +6,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                {{-- <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li> --}}
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" {{ request()->is('/') ? "aria-current='page'" : '' }} href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">Tentang Kami</a>
@@ -24,18 +15,29 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact') }}">Hubungi Kami</a>
                 </li>
+            </ul>
+            <ul class="navbar-nav">
                 @if (auth()->guest() || !auth()->check())
                     <li class="nav-item">
                         <a class="btn bttn-unite bttn-sm" href="{{ route('login.index') }}">Masuk</a>
                     </li>
                 @else
-                    <li class="nav-item">
-                        <form action="{{ route('login.destroy') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin keluar?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn bttn-unite bttn-sm bttn-danger">Keluar</button>
-                        </form>
-                        {{-- <a class="btn bttn-unite bttn-sm bttn-danger" href="{{ route('login.destroy') }}">Keluar</a> --}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form action="{{ route('login.destroy') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin keluar?');" class="dropdown-item bg-danger">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn text-white">Keluar</button>
+                                </form>
+                            </li>
+                        </ul>
                     </li>
                 @endif
             </ul>
