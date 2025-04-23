@@ -4,7 +4,7 @@
 @section('content')
     @include('layouts.navbar')
     <section class="container py-5 my-5">
-        <div class="container">
+        <div class="container rounded-4 border p-4 shadow-sm">
             <h1>{{ $quiz->judul }}</h1>
             <section class="w-100">
                 @if ($quiz->gambar)
@@ -40,12 +40,19 @@
                     <li class="mt-2"><i class="bi bi-asterisk" style="font-size: 10px;"></i> Pastikan koneksi internet Anda stabil selama mengerjakan.</li>
                 </ul>
             </section>
-            <section class="py-3 row">
+            <section class="py-3 mb-5">
+                <hr>
+                <section>
+                    <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+                    <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Masukkan nama lengkap Anda" required>
+                </section>
+            </section>
+            <section class="py-1 mt-4 row">
                 <section class="col-12 col-lg-8 col-xl-8 col-xxl-8">
                     <a href="{{ route('pembelajaran.show', $quiz->pembelajaran->slug) }}" class="btn btn-outline-secondary btn-md w-100"><i class="bi bi-arrow-left-short"></i> Kembali</a>
                 </section>
                 <section class="col-12 col-lg-4 col-xl-4 col-xxl-4 mt-3 mt-lg-0 mt-xl-0 mt-xxl-0">
-                    <a href="#" class="btn bttn-unite bttn-md w-100">Mulai</a>
+                    <a href="{{ route('quiz.edit', $quiz->slug) }}" class="btn bttn-unite bttn-md w-100">Mulai</a>
                 </section>
             </section>
         </div>

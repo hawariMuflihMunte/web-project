@@ -34,7 +34,7 @@ Route::group(['middleware' => ['role:Admin'], 'prefix' => 'admin'], function () 
 });
 
 Route::group(['middleware' => ['role:Siswa'], 'prefix' => 'siswa'], function () {
-  Route::resource('quiz', QuizController::class)->only('index', 'show');
+  Route::resource('quiz', QuizController::class)->only('index', 'show', 'edit');
 });
 
-Route::resource('quiz', QuizController::class)->only('index', 'show');
+Route::resource('quiz', QuizController::class)->only('index', 'show', 'edit');

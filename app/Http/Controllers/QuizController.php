@@ -45,7 +45,9 @@ class QuizController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // The quiz will be updated according to user's inputs here
+        $quiz = Quiz::where('slug', $id)->firstOrFail();
+        return view('pages.quiz-edit', compact('quiz'));
     }
 
     /**
@@ -53,7 +55,7 @@ class QuizController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
     }
 
     /**

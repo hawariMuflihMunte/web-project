@@ -27,6 +27,9 @@
 
     {{-- Bttn --}}
     <link rel="stylesheet" href="{{ asset('bttn.min.css') }}">
+
+    {{-- Alpine --}}
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
 </head>
 <body
     @if (request()->is('login') || request()->is('register'))
