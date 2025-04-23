@@ -79,7 +79,7 @@
                                     <span>Total Nilai: 0</span>
                                 </p>
                             </section>
-                            <button type="button" class="btn bttn-unite bttn-sm bttn-primary d-block w-100" disabled>Mulai Kuis</button>
+                            <button type="button" class="btn bttn-unite bttn-sm bttn-primary d-block w-100" disabled title="Belum ada kuis!">Mulai Kuis</button>
                         </section>
                     </section>
                 </section>
