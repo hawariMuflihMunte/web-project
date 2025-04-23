@@ -53,11 +53,36 @@
                     </section>
                 </section>
             </section>
-            <section class="col-4 col-lg-4 col-xl-4 col-xxl-4">
-                <h3>Tentang Pengajar</h3>
-                <fieldset>
-                    <h4>&nbsp;&nbsp;<i>{{ $pembelajaran->author->name }}</i></h4>
-                </fieldset>
+            <section class="col-12 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-column gap-4">
+                <section class="border shadow-md rounded-3 p-4">
+                    <h3>Tentang Pengajar</h3>
+                    <fieldset>
+                        <h4 class="text-muted">&nbsp;&nbsp;<i>{{ $pembelajaran->author->name }}</i></h4>
+                    </fieldset>
+                </section>
+                <section class="border shadow-md rounded-3 p-4">
+                    <h3>Evaluasi Pembelajaran</h3>
+                    <section class="bg-light p-4 rounded-3 mt-4">
+                        <h5>Modul {{ $pembelajaran->judul }}</h5>
+                        <section class="text-muted">
+                            <section class="my-4">
+                                <p class="my-1">
+                                    <i class="bi bi-hourglass-split"></i>
+                                    <span>Durasi: 0 menit</span>
+                                </p>
+                                <p class="my-1">
+                                    <i class="bi bi-question-circle"></i>
+                                    <span>Jumlah Soal: 0</span>
+                                </p>
+                                <p class="my-1">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Total Nilai: 0</span>
+                                </p>
+                            </section>
+                            <button type="button" class="btn bttn-unite bttn-sm bttn-primary d-block w-100" disabled>Mulai Kuis</button>
+                        </section>
+                    </section>
+                </section>
             </section>
         </section>
     </section>
