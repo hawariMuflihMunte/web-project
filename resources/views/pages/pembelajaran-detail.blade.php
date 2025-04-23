@@ -56,8 +56,8 @@
             <section class="col-12 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-column gap-4">
                 <section class="border shadow-md rounded-3 p-4">
                     <h3>Tentang Pengajar</h3>
-                    <fieldset>
-                        <h4 class="text-muted">&nbsp;&nbsp;<i>{{ $pembelajaran->author->name }}</i></h4>
+                    <fieldset class="py-3">
+                        <h5 class="text-muted"><i class="bi bi-person-fill"></i>&nbsp;&nbsp;<i>{{ $pembelajaran->author->name }}</i></h5>
                     </fieldset>
                 </section>
                 <section class="border shadow-md rounded-3 p-4">
@@ -79,8 +79,16 @@
                                     <span>Total Nilai: 0</span>
                                 </p>
                             </section>
-                            <button type="button" class="btn bttn-unite bttn-sm bttn-primary d-block w-100" disabled title="Belum ada kuis!">Mulai Kuis</button>
-                            
+                            <section class="d-flex flex-column gap-3">
+                                @if ($pembelajaran->quiz)
+                                    <button type="button" class="btn bttn-unite bttn-sm bttn-primary d-block w-100">Mulai Kuis</button>
+                                    @role('Admin')
+                                        <a class="btn bttn-unite bttn-sm bttn-warning d-block w-100">Edit Kuis</a>
+                                    @endrole
+                                @else
+                                    <button type="button" class="btn bttn-unite bttn-sm bttn-primary d-block w-100" disabled title="Belum ada kuis!">Mulai Kuis</button>
+                                @endif
+                            </section>
                         </section>
                     </section>
                 </section>
