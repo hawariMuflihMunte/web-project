@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('judul');
             $table->text('deskripsi');
+            $table->string('gambar')->nullable(true);
             $table->string('modul_pengantar')->comment("Modul pengantar yang terkait dengan kuis ini.");
             $table->string('created_by')->comment("User yang membuat modul pembelajaran.");
             $table->timestamps();
