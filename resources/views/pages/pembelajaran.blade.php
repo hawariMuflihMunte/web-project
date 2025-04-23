@@ -53,4 +53,5 @@
             </section>
         </section>
     </div>
+    @include('layouts.footer')
 @endsection

@@ -61,4 +61,5 @@
             </form>
         </fieldset>
     </div>
+    @include('layouts.footer')
 @endsection

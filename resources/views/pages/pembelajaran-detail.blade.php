@@ -4,7 +4,7 @@
 @section('content')
     @include('layouts.navbar')
 
-    <section class="container py-5">
+    <section class="container py-5 mb-5">
         <section class="row">
             <section id="content" class="col-12 col-lg-8 col-xl-8 col-xxl-8">
                 <section class="px-3 pb-5 mb-4">
@@ -19,11 +19,18 @@
                             <span>{{ $pembelajaran->created_at->format('j F Y') }}</span>
                         </section>
                     </section>
-                    <section class="max-w-2xl py-3">
+                    <section>
+                    @if (str_contains($pembelajaran->gambar, '/'))
+                        <img src="{{ asset($pembelajaran->gambar) }}" alt="" class="img-fluid">
+                    @else
+                        <img src="{{ asset('images/undraw_correct-answer_vjt7.png') }}" alt="A correct answer in a pile of questions in a quiz." class="img-fluid">
+                    @endif
+                    </section>
+                    <section class="max-w-2xl py-2">
                         <h2>Deskripsi</h2>
                         <p class="whitespace-pre-wrap" style="max-width: 76ch;">{{ $pembelajaran->deskripsi }}</p>
                     </section>
-                    <section class="max-w-2xl py-3">
+                    <section class="max-w-2xl py-2">
                         <h2>Tujuan Pembelajaran</h2>
                         <ul>
                             @foreach(explode(';;', $pembelajaran->tujuan_pembelajaran) as $tujuan)
@@ -31,18 +38,19 @@
                             @endforeach
                         </ul>
                     </section>
-                    <section class="max-w-2xl py-3">
+                    <section class="max-w-2xl py-2 pb-4">
                         <h2>Materi Tambahan</h2>
                         <p class="whitespace-pre-wrap">{{ $pembelajaran->materi_tambahan }}</p>
                     </section>
                     <section>
                         <h2>Lampiran</h2>
-                        <p>{{ $pembelajaran->lampiran }}</p>
+                        @if (str_contains($pembelajaran->lampiran, '/'))
+                            <a href="{{ asset($pembelajaran->lampiran) }}" class="btn btn-sm btn-primary" download>Download</a>
+                        @else
+                            <p class="text-muted">Tidak ada lampiran.</p>
+                            <img src="{{ asset('images/undraw_private-files_m2bw.png') }}" alt="A compiled document filled with files and folders." class="img-fluid">
+                        @endif
                     </section>
-                    {{-- <section>
-                        <h2>File</h2>
-                        <p>{{ $pembelajaran->gambar }}</p>
-                    </section> --}}
                 </section>
             </section>
             <section class="col-4 col-lg-4 col-xl-4 col-xxl-4">
@@ -53,4 +61,5 @@
             </section>
         </section>
     </section>
+    @include('layouts.footer')
 @endsection
