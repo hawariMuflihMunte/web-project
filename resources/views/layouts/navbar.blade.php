@@ -7,13 +7,13 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" {{ request()->is('/') ? "aria-current='page'" : '' }} href="{{ route('home') }}">Home</a>
+                    <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">Tentang Kami</a>
+                    <a class="nav-link" href="{{ route('home') }}#about">Tentang Kami</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact') }}">Hubungi Kami</a>
+                    <a class="nav-link" href="{{ route('home') }}#contact">Hubungi Kami</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
