@@ -37,18 +37,17 @@ class LoginController extends Controller
 
     public function destroy(Request $request)
     {
-        // Get the current user's information
-        $user = Auth::user();
+        // Attempt to log the user out
+        if (Auth::check()) {
+            Auth::logout();
 
-        // Log the user out
-        Auth::logout();
+            // Invalidate the current session
+            $request->session()->invalidate();
 
-        // Invalidate the current session and regenerate the token
-        $request->session()->invalidate();
+            // Regenerate the session after logout to prevent CSRF token mismatch
+            $request->session()->regenerate();
+        }
 
-        // Generate a new session token
-        $request->session()->regenerateToken();
-
-        return redirect()->route('home')->with('success', 'Berhasil Keluar!');
+        return redirect('/');
     }
 }

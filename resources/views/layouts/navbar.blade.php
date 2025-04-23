@@ -31,6 +31,7 @@
                 @else
                     <li class="nav-item">
                         <form action="{{ route('login.destroy') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin keluar?');">
+                            @csrf
                             @method('DELETE')
                             <button type="submit" class="btn bttn-unite bttn-sm bttn-danger">Keluar</button>
                         </form>
