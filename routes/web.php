@@ -6,6 +6,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PembelajaranController;
 
 // Auth
 Route::get('/login', [LoginController::class, 'index'])->name('login.index');
@@ -20,11 +21,11 @@ Route::get('/contact', ContactController::class)->name('contact');
 
 // Pembelajaran
 Route::group(['middleware' => ['role:Admin'], 'prefix' => 'admin'], function () {
-  Route::resource('pembelajaran', \App\Http\Controllers\PembelajaranController::class);
+  Route::resource('pembelajaran', PembelajaranController::class);
 });
 
 Route::group(['middleware' => ['role:Siswa'], 'prefix' => 'siswa'], function () {
-  Route::resource('pembelajaran', \App\Http\Controllers\PembelajaranController::class)->only('index', 'show');
+  Route::resource('pembelajaran', PembelajaranController::class)->only('index', 'show');
 });
 
-Route::resource('pembelajaran', \App\Http\Controllers\PembelajaranController::class)->only('index', 'show');
+Route::resource('pembelajaran', PembelajaranController::class)->only('index', 'show');

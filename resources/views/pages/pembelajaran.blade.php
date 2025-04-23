@@ -16,16 +16,29 @@
 
             <section class="py-5 d-flex flex-column flex-lg-row flex-xl-row flex-xxl-row flex-nowrap flex-lg-wrap flex-xl-wrap flex-xxl-wrap justify-content-center align-items-center gap-5">
                 @if (!$pembelajarans->isEmpty())
-                    @foreach ($pembelajarans as $pembelajaran)
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{ asset('images/undraw_reading-a-book_4cap.png') }}" class="card-img-top" alt="Reading a book">
-                            <div class="card-body">
-                                <h5 class="card-title">Modul {{ $pembelajaran->judul }}</h5>
-                                <p class="card-text text-truncate">{{ $pembelajaran->deskripsi }}</p>
-                                <a href="{{ route('pembelajaran.show', $pembelajaran->slug) }}" class="btn btn-primary">Selengkapnya</a>
+                    @role('Admin')
+                        @foreach ($pembelajarans as $pembelajaran)
+                            <div class="card" style="width: 18rem;">
+                                <img src="{{ asset('images/undraw_reading-a-book_4cap.png') }}" class="card-img-top" alt="Reading a book">
+                                <div class="card-body">
+                                    <h5 class="card-title">Modul {{ $pembelajaran->judul }}</h5>
+                                    <p class="card-text text-truncate">{{ $pembelajaran->deskripsi }}</p>
+                                    <a href="admin/pembelajaran/{{ $pembelajaran->slug }}" class="btn btn-primary">Selengkapnya</a>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                        @foreach ($pembelajarans as $pembelajaran)
+                            <div class="card" style="width: 18rem;">
+                                <img src="{{ asset('images/undraw_reading-a-book_4cap.png') }}" class="card-img-top" alt="Reading a book">
+                                <div class="card-body">
+                                    <h5 class="card-title">Modul {{ $pembelajaran->judul }}</h5>
+                                    <p class="card-text text-truncate">{{ $pembelajaran->deskripsi }}</p>
+                                    <a href="{{ route('pembelajaran.show', $pembelajaran->slug) }}" class="btn btn-primary">Selengkapnya</a>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endrole
                 @else
                     <div class="card text-bg-dark" style="max-width: 500px;">
                         <img src="{{ asset('images/undraw_creative-flow_t3kz.png') }}" class="card-img" alt="">

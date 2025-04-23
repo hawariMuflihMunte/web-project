@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pembelajarans', function (Blueprint $table) {
-            $table->uuid('id')->primary(true);
+            $table->id('id')->primary(true);
             $table->string('slug')->unique();
             $table->string('judul');
             $table->text('deskripsi');
@@ -20,7 +20,10 @@ return new class extends Migration
             $table->text('materi_tambahan')->nullable(true)->comment("Materi tambahan atau penjelasan tambahan terkait dengan modul.");
             $table->string('lampiran')->nullable(true);
             $table->string('gambar')->nullable(true);
+            $table->string('created_by')->comment("User yang membuat modul pembelajaran.");
             $table->timestamps();
+
+            $table->foreign('created_by')->references('slug')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -4,11 +4,42 @@ namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Pembelajaran extends Model
 {
     use Sluggable;
+
+    protected $table = 'pembelajarans';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'judul',
+        'deskripsi',
+        'tujuan_pembelajaran',
+        'materi_tambahan',
+        'lampiran',
+        'gambar',
+        'created_by',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'judul' => 'string',
+        'deskripsi' => 'string',
+        'tujuan_pembelajaran' => 'string',
+        'materi_tambahan' => 'string',
+        'lampiran' => 'string',
+        'gambar' => 'string',
+        'created_by' => 'string',
+    ];
 
     public function sluggable(): array
     {
@@ -19,48 +50,8 @@ class Pembelajaran extends Model
         ];
     }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'slug',
-        'judul',
-        'deskripsi',
-        'tujuan_pembelajaran',
-        'materi_tambahan',
-        'lampiran',
-        'gambar',
-    ];
-
-    // /**
-    //  * The attributes that should be cast to native types.
-    //  *
-    //  * @var array
-    //  */
-    // protected $casts = [
-    //     'id' => 'uuid',
-    // ];
-
-    /**
-     * The "booted" method of the model.
-     *
-     * @return void
-     */
-    protected static function boot()
+    public function author()
     {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->id = (string) Str::uuid();
-        });
+        return $this->belongsTo(User::class, 'created_by', 'slug');
     }
-
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
 }

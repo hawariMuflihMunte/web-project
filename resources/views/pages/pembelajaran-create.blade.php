@@ -18,7 +18,7 @@
             @endif
             <form action="{{ route('pembelajaran.store') }}" method="POST" class="py-2" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                <input type="hidden" name="created_by" value="{{ Auth::user()->slug }}">
                 <section class="d-flex flex-row w-100 justify-content-between align-items-start gap-3">
                     <section class="d-flex flex-column w-100 align-items-baseline">
                         <div class="mb-4 w-100">
