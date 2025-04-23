@@ -17,6 +17,7 @@ class Quiz extends Model
     protected $fillable = [
         'judul',
         'deskripsi',
+        'gambar',
         'modul_pengantar',
         'created_by',
     ];
@@ -30,6 +31,7 @@ class Quiz extends Model
         'judul' => 'string',
         'deskripsi' => 'string',
         'modul_pengantar' => 'string',
+        'gambar' => 'string',
         'created_by' => 'string',
     ];
 
@@ -47,7 +49,10 @@ class Quiz extends Model
     {
         return [
             'slug' => [
-                'source' => 'judul',
+                'source' => 'judul-gambar',
+                'method' => function ($string) {
+                    return substr(md5($string), 0, 12);
+                },
             ],
         ];
     }
