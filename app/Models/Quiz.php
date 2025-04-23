@@ -49,7 +49,7 @@ class Quiz extends Model
     {
         return [
             'slug' => [
-                'source' => 'judul-gambar',
+                'source' => 'judul',
                 'method' => function ($string) {
                     return substr(md5($string), 0, 12);
                 },
