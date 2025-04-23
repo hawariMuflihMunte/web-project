@@ -15,6 +15,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}#contact">Hubungi Kami</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Layanan
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="{{ route('pembelajaran.index') }}">Pembelajaran</a></li>
+                        {{-- <li><a class="dropdown-item" href="#">Another action</a></li> --}}
+                        {{-- <li><hr class="dropdown-divider"></li> --}}
+                    </ul>
+                </li>
             </ul>
             <ul class="navbar-nav">
                 @if (auth()->guest() || !auth()->check())
