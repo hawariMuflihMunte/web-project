@@ -3,7 +3,7 @@
 @section('title', 'Daftar')
 @section('content')
     <section class="d-flex w-100 justify-content-center align-items-center" style="height: calc(100vh - 20px);">
-        <fieldset class="border p-4 rounded shadow-md" style="min-width: 320px; max-width: 450px; width: 100%;">
+        <fieldset class="border p-4 rounded shadow-md bg-light" style="min-width: 320px; max-width: 450px; width: 100%;">
             <legend class="text-center">Daftar</legend>
             <hr>
             <form action="{{ route('login.store') }}" method="POST">

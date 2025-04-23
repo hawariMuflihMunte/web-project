@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{ asset('bttn.min.css') }}">
 </head>
 <body
-    @if (request()->is('login') || request()->is('daftar'))
+    @if (request()->is('login') || request()->is('register'))
     style="
         background: url('{{ asset('images/school-supply-stationary-background-free-vector.jpg') }}') no-repeat center center fixed;
     "
