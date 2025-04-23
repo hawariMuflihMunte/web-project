@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-3">
                 <h5>Alamat</h5>
-                <p class="small">Jl. Jend. Sudirman No. 1, Jakarta Pusat, DKI Jakarta, Indonesia</p>
+                <p class="small">Blang Pulo, Kota Lhokseumawe, Aceh, Indonesia</p>
             </div>
         </div>
         <hr class="my-2">
